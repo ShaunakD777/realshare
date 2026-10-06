@@ -1,0 +1,7 @@
+<h1>Add Property</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Property</button>
+</form>
+<a href="/seller-dashboard/">Back to Dashboard</a>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="website/ icon" href="/static/images/logo.png" type="png" >
+</head>
+<body>
+    <section class="property-details">
+        <div class="property-info">
+            <img src="{{ property.image.url }}" alt="Property Image">
+            <h2>{{ property.title }}</h2>
+            <p>Location: {{ property.location }}</p>
+            <p>Price: ${{ property.price }}</p>
+            <p>{{ property.description }}</p>
+        </div>
+        <div class="investment-calculator">
+            <h3>Investment Calculator</h3>
+            <h1>{{ property.title }}</h1>
+<img src="{{ property.image.url }}" alt="{{ property.title }}">
+<p>Price per 1% of property: ₹{{ property.price_per_percent }}</p>
+<p>Available Percentage: {{ 100 - property.percentage_sold }}%</p>
+
+<!-- Calculator Section -->
+<h3>Investment Calculator</h3>
+<form id="calculator-form">
+    <label for="percentage">Percentage to Buy:</label>
+    <input type="number" id="percentage" name="percentage" min="1" max="{{ 100 - property.percentage_sold }}" step="0.1">
+    <button type="button" onclick="calculateMoney()">Calculate Money</button>
+
+    <label for="money">Money to Invest:</label>
+    <input type="number" id="money" name="money" step="0.01">
+    <button type="button" onclick="calculatePercentage()">Calculate Percentage</button>
+</form>
+
+<p id="calculation-result"></p>
+
+<script>
+    const pricePerPercent = {{ property.price_per_percent }};
+
+    function calculateMoney() {
+        const percentage = document.getElementById("percentage").value;
+        if (percentage) {
+            const money = percentage * pricePerPercent;
+            document.getElementById("calculation-result").innerText = `You need ₹${money.toFixed(2)} to buy ${percentage}% of this property.`;
+        }
+    }
+
+    function calculatePercentage() {
+        const money = document.getElementById("money").value;
+        if (money) {
+            const percentage = money / pricePerPercent;
+            document.getElementById("calculation-result").innerText = `With ₹${money.toFixed(2)}, you can buy ${percentage.toFixed(2)}% of this property.`;
+        }
+    }
+</script>
+            <div id="results">
+                <p>Estimated ROI: <span id="roi">0</span>%</p>
+                <p>Total Returns: $<span id="total-returns">0</span></p>
+            </div>
+        </div>
+        <h3>Purchase Property Shares</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="purchase-percentage">Enter Percentage to Buy:</label>
+            <input type="number" id="purchase-percentage" name="percentage" min="1" max="{{ 100 - property.percentage_sold }}" step="0.1">
+            <button type="submit">Purchase</button>
+        </form>
+        
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

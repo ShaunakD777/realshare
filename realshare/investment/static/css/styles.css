@@ -1,0 +1,300 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background: #111;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    margin-top: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(to right, #111, #333);
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    position: absolute;
+    transition: 2s ease;
+    /* margin-bottom: 60px; */
+    top:0;
+    margin-top: 250px;
+
+}
+.hero-content .r-hover{
+    opacity: 0;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.hero-content:hover .r{
+    opacity: 0;
+}
+.hero-content:hover .r-hover{
+    opacity: 1;
+}
+.btn {
+    background: #f0a500;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: #d18e00;
+}
+
+.property-display {
+    position: relative;
+    max-width: 300px;
+    height: 200px; /* Set height for proper alignment */ /* Ensure no elements overflow */
+    
+}
+
+.property-display img {
+    width:300px;
+    height:200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px #555;
+    transition: opacity 3s ease; /* Smooth transition */
+    position: absolute; /* Allow stacking */
+    right:0;
+}
+
+.property-display .hover-img {
+    opacity: 0; /* Hidden by default */
+}
+.property-display:hover .hover-img {
+    opacity: 1; /* Show the second image on hover */
+}
+
+.property-display:hover .main-img {
+    opacity: 0; /* Hide the first image on hover */
+}
+/* Search Bar */
+.search-bar {
+    text-align: center;
+    padding: 20px;
+    background: #eaeaea;
+}
+
+.search-bar h2 {
+    margin-bottom: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 60%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: #f0a500;
+}
+
+/* Info Section */
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 20px;
+    background: #f5f5f5;
+}
+
+.info {
+    text-align: center;
+    max-width: 200px;
+}
+
+.info h3 {
+    margin-bottom: 10px;
+}
+
+.info p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Properties */
+.recent-properties {
+    padding: 20px;
+    text-align: center;
+}
+
+.recent-properties h2 {
+    margin-bottom: 20px;
+}
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.property-item {
+    background: #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #111;
+    color: #fff;
+}
+
+.property-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.property-info {
+    max-width: 60%;
+}
+
+.property-info img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.investment-calculator {
+    max-width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.investment-calculator form {
+    margin-bottom: 20px;
+}
+
+.investment-calculator input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.investment-calculator button {
+    padding: 10px 20px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#results {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+.dashboard {
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.investments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.investments-table th, .investments-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+.investments-table th {
+    background: #333;
+    color: #fff;
+}
+
+.total-investment {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #111;
+}
+.coming-soon {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #888;
+    margin-top: 20px;
+}
+.logo1 {
+    width:25px;height:25px;border-radius:25px;margin-top:5px;margin-left:15px;margin-bottom:0px
+}

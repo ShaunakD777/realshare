@@ -1,0 +1,13 @@
+<h1>Pending Property Approvals</h1>
+{% for property in pending_properties %}
+    <div>
+        <h2>{{ property.title }}</h2>
+        <img src="{{ property.image.url }}" alt="{{ property.title }}" width="300">
+        <p>Description: {{ property.description }}</p>
+        <p>Seller: {{ property.seller.username }}</p>
+        <form method="POST" action="{% url 'approve_property' property.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Approve</button>
+        </form>
+    </div>
+{% endfor %}

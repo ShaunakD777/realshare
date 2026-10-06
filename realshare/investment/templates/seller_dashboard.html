@@ -1,0 +1,13 @@
+<h1>Seller Dashboard</h1>
+<p>Welcome, {{ request.user.username }}!</p>
+{% for property in properties %}
+    <div>
+        <h2>{{ property.title }}</h2>
+        <img src="{{ property.image.url }}" alt="{{ property.title }}" width="300">
+        <p>Price per 1%: ₹{{ property.price_per_percent }}</p>
+        <p>Sold: {{ property.percentage_sold }}%</p>
+        <p>Remaining: {{ 100 - property.percentage_sold }}%</p>
+        <a href="{% url 'property_detail' property.id %}">View Details</a>
+    </div>
+{% endfor %}
+<a href="/add-property/" class="btn btn-success">Add New Property</a>

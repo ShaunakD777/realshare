@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Share</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="website/ icon" href="/static/images/logo.png" type="png" >
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">REAL SHARE</div>
+            <ul class="nav-links">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="mailto: jaydhole.739@gmail.com">Email</a></li>
+                <li><a href="">Affiliate Program</a></li>
+                <li><a href="/dashboard/">Dashboard</a></li>
+                <li><a href="https://www.instagram.com/jaydhole1808/">Contact_Us</a></li>
+                <p style=margin-left:750px style=max-width:100px>Welcome, {{ user.username }}!</p>
+                <li><a href="/login/">Logout</a></li>
+                <img src="/static/images/logo.png" class="logo1" >
+            </ul>
+
+        </nav>
+    </header>
+
+    <section class="search-bar">
+        <h2>Find Your Dream Property</h2>
+        <form method="GET" action="/search/">
+            <input type="text" name="query" placeholder="Search by location, price, or type" required>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="r">REAL SHARE</h1>
+            <h1 class="r-hover">WANNA MAKE MONEY?</h1>
+            <p>Invest Smartly in Real Estate.</p>
+            <a href="#" class="btn f">Get Started</a>
+        </div>
+        <div class="property-display">
+            <img src="https://www.home-designing.com/wp-content/uploads/2020/04/unique-house-design.jpg" alt="Luxury House" class="main-img">
+            <img src="/static/images/buy.png" alt="Luxury House" class="hover-img">
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="info">
+            <h3>How It Works</h3>
+            <p>When you invest your money in property you can sell that property any time when it's price goes up and make money.You can invest as low as 100rs also here .</p>
+        </div>
+        <div class="info">
+            <h3>Benefits</h3>
+            <p>You can earn money form real estate in just few clicks.</p>
+        </div>
+        <div class="info">
+            <h3>About Us</h3>
+            <p>Our team always ensure that the property you choose is genuine and we aspiring to become best real estate invest company in next few years. </p>
+        </div>
+        <div class="info">
+            <h3>Meet the Team</h3>
+           <p>Jay Dhole-Logic and Flow handler<br>
+            Shaunak Das-Database handler<br>
+            Ayush Bhandari-Profile handler<br>
+            Anushka Khandar-Web designer</p>
+        </div>
+    </section>
+
+    <section class="recent-properties">
+        <h2>Recently Added Properties</h2>
+        <div class="properties-grid">
+            {% if recent_properties %}
+                {% for property in recent_properties %}
+                    <div class="property-item">
+                        <h3>{{ property.title }}</h3>
+                        <img src="{{ property.image.url }}" alt="{{ property.title }}">
+                        <p>{{ property.description|truncatewords:15 }}</p>
+                        <p>Price: ${{ property.price_per_percent }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="coming-soon">Properties coming soon!</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Real Share. All rights reserved.</p>
+    </footer>
+</body>
+</html>

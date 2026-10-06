@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="website/ icon" href="/static/images/logo.png" type="png" >
+</head>
+<body>
+    <section class="dashboard">
+        <h1>Welcome, {{ user.username }}</h1>
+        <h2>Your Investments</h2>
+
+        {% if investments %}
+            <table class="investments-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Amount Invested</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for investment in investments %}
+                        <tr>
+                            <td>{{ investment.property.title }}</td>
+                            <td>{{ investment.property.location }}</td>
+                            <td>${{ investment.property.price }}</td>
+                            <td>${{ investment.amount_invested }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="total-investment">
+                <p>Total Investment: ${{ total_investment }}</p>
+            </div>
+        {% else %}
+            <p>You haven't made any investments yet.</p>
+        {% endif %}
+    </section>
+</body>
+</html>

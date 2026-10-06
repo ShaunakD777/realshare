@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="website/ icon" href="/static/images/logo.png" type="png" >
+    <style>
+        body {
+            background-image: url("https://www.home-designing.com/wp-content/uploads/2020/04/unique-house-design.jpg"); /* Replace with your desired color */
+            margin: 0; /* Removes default margin for full-page color */
+            height: 100vh; /* Ensures full viewport height */
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        </style>
+</head>
+<body>
+    <section class="register">
+        <h2>Register</h2>
+        <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" required><br>
+
+            <div class="seller">
+                <label for="is_seller" style=display:flex>Register as a Seller:<input type="checkbox" style=width:15px name="is_seller" id="is_seller"></label><br>
+            
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="/login/">Login here</a>.</p>
+    </section>
+</body>
+</html>
